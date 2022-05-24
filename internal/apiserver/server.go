@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 Kristian Huang <kristianhuang007@gmail.com>. All rights reserved.
+ * Copyright 2022 Kristian Huang <krishuang007@gmail.com>. All rights reserved.
  * Use of this source code is governed by a MIT style
  * license that can be found in the LICENSE file.
  */
@@ -32,7 +32,7 @@ type preparedAPIServer struct {
 // 使用 apiserver 的配置项填充至 server 的配置项，用以满足启动 server 的必要条件。
 func buildGenericConfig(conf *config.Config) (apiServerConfig *genericapiserver.Config, err error) {
 	apiServerConfig = genericapiserver.NewConfig()
-	if err = conf.ServerRunOptions.ApplyTo(apiServerConfig); err != nil {
+	if err = conf.GenericServerOptions.ApplyTo(apiServerConfig); err != nil {
 		return
 	}
 

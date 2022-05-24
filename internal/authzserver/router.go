@@ -4,21 +4,16 @@
  * license that can be found in the LICENSE file.
  */
 
-package apiserver
+package authzserver
 
 import (
-	"cooool-blog-api/internal/apiserver/route"
-
 	"github.com/gin-gonic/gin"
 )
 
 type Route func(e *gin.Engine)
 
 var (
-	routes = []Route{
-		route.Index,
-		route.AdminUser,
-	}
+	routes = []Route{}
 )
 
 func installMiddleware(e *gin.Engine) {

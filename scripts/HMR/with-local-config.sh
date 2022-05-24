@@ -6,4 +6,9 @@
 # license that can be found in the LICENSE file.
 #
 
-sudo gowatch -p ./cmd/apiserver -args="-c=./config/local-apiserver.yaml"
+CONFIG_PATH=$(dirname "${BASH_SOURCE[0]}")/../../config
+CONFIG=$CONFIG_PATH/apiserver.yaml
+CONFIG_LOCAL=$CONFIG_PATH/local-apiserver.yaml
+
+# If you need new config.
+cp $CONFIG $CONFIG_LOCAL

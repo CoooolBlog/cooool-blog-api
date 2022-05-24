@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 Kristian Huang <kristianhuang007@gmail.com>. All rights reserved.
+ * Copyright 2022 Kristian Huang <krishuang007@gmail.com>. All rights reserved.
  * Use of this source code is governed by a MIT style
  * license that can be found in the LICENSE file.
  */
@@ -18,18 +18,19 @@ import (
 )
 
 type Options struct {
-	ServerRunOptions       *genericoptions.ServerRunOptions       `json:"server" mapstructure:"server"`
+	GenericServerOptions   *genericoptions.GenericServerOptions   `json:"server" mapstructure:"server"`
 	InsecureServingOptions *genericoptions.InsecureServingOptions `json:"insecure" mapstructure:"insecure"`
 	FeatureOptions         *genericoptions.FeatureOptions         `json:"feature" mapstructure:"feature"`
 	MySQLOptions           *genericoptions.MySQLOptions           `json:"mysql" mapstructure:"mysql"`
 	RedisOptions           *genericoptions.RedisOptions           `json:"redis" mapstructure:"redis"`
 	Log                    *rollinglog.Options                    `json:"log" mapstructure:"log"`
 	Validator              *validator.Options                     `json:"validator" mapstructure:"validator"`
+	// TODO https options
 }
 
 func NewOptions() *Options {
 	return &Options{
-		ServerRunOptions:       genericoptions.NewServerRunOptions(),
+		GenericServerOptions:   genericoptions.NewGenericServerOptions(),
 		InsecureServingOptions: genericoptions.NewInsecureServingOptions(),
 		FeatureOptions:         genericoptions.NewFeatureOptions(),
 		MySQLOptions:           genericoptions.NewMySQLOptions(),
@@ -40,7 +41,7 @@ func NewOptions() *Options {
 }
 
 func (o *Options) Flags() (fss flag.NamedFlagSets) {
-	o.ServerRunOptions.AddFlags(fss.FlagSet("generic"))
+	o.GenericServerOptions.AddFlags(fss.FlagSet("generic"))
 	o.InsecureServingOptions.AddFlags(fss.FlagSet("insecure serving"))
 	o.FeatureOptions.AddFlags(fss.FlagSet("features"))
 	o.MySQLOptions.AddFlags(fss.FlagSet("mysql"))

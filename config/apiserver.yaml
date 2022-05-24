@@ -17,7 +17,7 @@ mysql:
   port: 3306 # default 3306
   username: root
   password: B0RItAFBBIpzboP9
-  database: blog
+  database: cooool-blog
   max-idle-connections: 100 # 最大空闲连接数
   max-open-connections: 100
   max-connection-list-time: 10s # 空闲链接最大存活时间

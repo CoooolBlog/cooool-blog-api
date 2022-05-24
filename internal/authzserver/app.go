@@ -4,23 +4,23 @@
  * license that can be found in the LICENSE file.
  */
 
-package apiserver
+package authzserver
 
 import (
-	"cooool-blog-api/internal/apiserver/config"
-	"cooool-blog-api/internal/apiserver/options"
+	"cooool-blog-api/internal/authzserver/config"
+	"cooool-blog-api/internal/authzserver/options"
 
 	"github.com/kristianhuang/go-cmp/app"
 	log "github.com/kristianhuang/go-cmp/rollinglog"
 )
 
-const commandDesc = `Welcome to use Blog-API`
+const commandDesc = `Authorization server to run ladon policies which can protecting your resources.
+Find more ladon information at:
+    https://github.com/ory/ladon`
 
 func NewApp(use string) *app.App {
 	opts := options.NewOptions()
-	application := app.NewApp(
-		use,
-		"API Server",
+	application := app.NewApp(use, "Authorization Server",
 		app.WithLong(commandDesc),
 		app.WithOptions(opts),
 		app.WithDefaultValidArgs(),
@@ -35,12 +35,17 @@ func createRunFunc(opts *options.Options) app.RunFunc {
 		log.Init(opts.Log)
 		defer log.Flush()
 
-		return Run(config.NewConfig(opts))
+		conf, err := config.NewConfig(opts)
+		if err != nil {
+			return err
+		}
+
+		return Run(conf)
 	}
 }
 
 func Run(conf *config.Config) error {
-	server, err := createServer(conf)
+	server, err := createAuthzServer(conf)
 	if err != nil {
 		return err
 	}

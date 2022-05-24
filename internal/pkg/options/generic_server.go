@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 Kristian Huang <kristianhuang007@gmail.com>. All rights reserved.
+ * Copyright 2022 Kristian Huang <krishuang007@gmail.com>. All rights reserved.
  * Use of this source code is governed by a MIT style
  * license that can be found in the LICENSE file.
  */
@@ -12,23 +12,23 @@ import (
 	"github.com/spf13/pflag"
 )
 
-type ServerRunOptions struct {
+type GenericServerOptions struct {
 	Mode        string   `json:"mode" mapstructure:"mode"`
 	Health      bool     `json:"health" mapstructure:"health"`
 	Middlewares []string `json:"middlewares" mapstructure:"middlewares"`
 }
 
-func NewServerRunOptions() *ServerRunOptions {
+func NewGenericServerOptions() *GenericServerOptions {
 	defaults := server.NewConfig()
 
-	return &ServerRunOptions{
+	return &GenericServerOptions{
 		Mode:        defaults.Mode,
 		Health:      defaults.Health,
 		Middlewares: defaults.Middlewares,
 	}
 }
 
-func (o *ServerRunOptions) ApplyTo(c *server.Config) error {
+func (o *GenericServerOptions) ApplyTo(c *server.Config) error {
 	c.Mode = o.Mode
 	c.Health = o.Health
 	c.Middlewares = o.Middlewares
@@ -36,11 +36,11 @@ func (o *ServerRunOptions) ApplyTo(c *server.Config) error {
 	return nil
 }
 
-func (o *ServerRunOptions) Validate() []error {
+func (o *GenericServerOptions) Validate() []error {
 	return []error{}
 }
 
-func (o *ServerRunOptions) AddFlags(fs *pflag.FlagSet) {
+func (o *GenericServerOptions) AddFlags(fs *pflag.FlagSet) {
 	fs.BoolVar(&o.Health, "server.health", o.Health, "Add self readiness check and install /health router.")
 
 	fs.StringVar(&o.Mode, "server.mode", o.Mode, "Server mode, Supported server mode: debug, test, release.")

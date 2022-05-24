@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 Kristian Huang <kristianhuang007@gmail.com>. All rights reserved.
+ * Copyright 2022 Kristian Huang <krishuang007@gmail.com>. All rights reserved.
  * Use of this source code is governed by a MIT style
  * license that can be found in the LICENSE file.
  */
@@ -15,10 +15,12 @@ import (
 	"time"
 
 	"cooool-blog-api/internal/pkg/middleware"
+	"cooool-blog-api/internal/pkg/response"
 
 	"github.com/gin-contrib/pprof"
 	"github.com/gin-gonic/gin"
 	log "github.com/kristianhuang/go-cmp/rollinglog"
+	"github.com/kristianhuang/go-cmp/version"
 	promethium "github.com/zsais/go-gin-prometheus"
 	"golang.org/x/sync/errgroup"
 )
@@ -45,7 +47,7 @@ type GenericAPIServer struct {
 func initGenericAPIServer(s *GenericAPIServer) {
 	s.Setup()
 	s.InstallMiddlewares()
-	// s.InstallAPIs()
+	s.InstallAPIs()
 }
 
 // Setup do some setup work before the service starts
@@ -93,7 +95,10 @@ func (s *GenericAPIServer) InstallAPIs() {
 		pprof.Register(s.Engine)
 	}
 
-	// TODO 版本管理功能
+	// 开启版本控制
+	s.GET("/version", func(c *gin.Context) {
+		response.Write(c, nil, version.Get())
+	})
 }
 
 func (s *GenericAPIServer) Run() error {
@@ -102,7 +107,7 @@ func (s *GenericAPIServer) Run() error {
 		Handler: s,
 	}
 
-	// https
+	// TODO https
 	// s.secureServer = &http.Server{
 	// 	Addr:    s.SecureServingInfo.Host(),
 	// 	Handler: s,

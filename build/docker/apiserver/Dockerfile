@@ -13,7 +13,7 @@ RUN go mod tidy
 
 COPY . .
 
-RUN go build -ldflags="-w -s" -a -installsuffix cgo -o blog-apiserver ./cmd/apiserver
+RUN go build -ldflags="-w -a" -a -installsuffix cgo -o blog-apiserver ./cmd/apiserver
 
 FROM scratch
 
