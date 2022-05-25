@@ -9,8 +9,8 @@ package apiserver
 import (
 	"sync"
 
-	"cooool-blog-api/internal/authzserver/store"
-	pb "cooool-blog-api/internal/pkg/proto/apiserver/v1"
+	"github.com/CoooolBlog/cooool-blog-api/internal/authzserver/store"
+	pb "github.com/CoooolBlog/cooool-blog-api/internal/pkg/proto/apiserver/v1"
 
 	log "github.com/kristianhuang/go-cmp/rollinglog"
 	"google.golang.org/grpc"

@@ -20,12 +20,15 @@ func installMiddleware(e *gin.Engine) {
 
 }
 
-func initRouter(e *gin.Engine) *gin.Engine {
-	installMiddleware(e)
-
+func installRoutes(e *gin.Engine) {
 	for _, r := range routes {
 		r(e)
 	}
+}
+
+func initRouter(e *gin.Engine) *gin.Engine {
+	installMiddleware(e)
+	installRoutes(e)
 
 	return e
 }

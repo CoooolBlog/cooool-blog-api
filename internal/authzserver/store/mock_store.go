@@ -10,7 +10,7 @@ package store
 import (
 	"reflect"
 
-	v1 "cooool-blog-api/internal/pkg/proto/apiserver/v1"
+	v1 "github.com/CoooolBlog/cooool-blog-api/internal/pkg/proto/apiserver/v1"
 
 	"github.com/golang/mock/gomock"
 	"github.com/ory/ladon"

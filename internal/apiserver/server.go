@@ -7,11 +7,11 @@
 package apiserver
 
 import (
-	"cooool-blog-api/internal/apiserver/config"
-	"cooool-blog-api/internal/apiserver/store"
-	"cooool-blog-api/internal/apiserver/store/mysql"
-	genericoptions "cooool-blog-api/internal/pkg/options"
-	genericapiserver "cooool-blog-api/internal/pkg/server"
+	"github.com/CoooolBlog/cooool-blog-api/internal/apiserver/config"
+	"github.com/CoooolBlog/cooool-blog-api/internal/apiserver/store"
+	"github.com/CoooolBlog/cooool-blog-api/internal/apiserver/store/mysql"
+	genericoptions "github.com/CoooolBlog/cooool-blog-api/internal/pkg/options"
+	genericapiserver "github.com/CoooolBlog/cooool-blog-api/internal/pkg/server"
 
 	log "github.com/kristianhuang/go-cmp/rollinglog"
 	"github.com/kristianhuang/go-cmp/shutdown"

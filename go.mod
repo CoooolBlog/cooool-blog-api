@@ -1,4 +1,4 @@
-module cooool-blog-api
+module github.com/CoooolBlog/cooool-blog-api
 
 go 1.18
 

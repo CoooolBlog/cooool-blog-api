@@ -9,11 +9,11 @@ package cache
 import (
 	"sync"
 
-	pb "cooool-blog-api/internal/pkg/proto/apiserver/v1"
+	pb "github.com/CoooolBlog/cooool-blog-api/internal/pkg/proto/apiserver/v1"
 
 	"github.com/dgraph-io/ristretto"
 
-	"cooool-blog-api/internal/authzserver/store"
+	"github.com/CoooolBlog/cooool-blog-api/internal/authzserver/store"
 
 	"github.com/ory/ladon"
 

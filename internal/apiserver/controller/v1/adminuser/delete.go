@@ -7,12 +7,10 @@
 package adminuser
 
 import (
-	"cooool-blog-api/internal/pkg/code"
-	"cooool-blog-api/internal/pkg/response"
+	"github.com/CoooolBlog/cooool-blog-api/internal/pkg/bind"
+	"github.com/CoooolBlog/cooool-blog-api/internal/pkg/response"
 
 	"github.com/gin-gonic/gin"
-	"github.com/kristianhuang/go-cmp/errors"
-	"github.com/kristianhuang/go-cmp/validator"
 )
 
 type delForm struct {
@@ -21,14 +19,8 @@ type delForm struct {
 
 func (a *AdminUserController) Delete(c *gin.Context) {
 	delForm := &delForm{}
-	if err := c.ShouldBind(delForm); err != nil {
-		response.Write(c, errors.WithCode(code.ErrBind, err.Error()), nil)
-
-		return
-	}
-
-	if err := validator.Struct(delForm); err != nil {
-		response.Write(c, errors.WithCode(code.ErrValidation, err.(*validator.ValidationErrors).TranslateErrs()[0].Error()), nil)
+	if err := bind.Bind(c, delForm); err != nil {
+		response.Write(c, err, nil)
 
 		return
 	}

@@ -12,7 +12,7 @@ import (
 	"runtime"
 	"time"
 
-	"cooool-blog-api/internal/apiserver"
+	"github.com/CoooolBlog/cooool-blog-api/internal/apiserver"
 )
 
 func main() {

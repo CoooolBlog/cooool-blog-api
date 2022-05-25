@@ -9,7 +9,7 @@ package store
 import (
 	"context"
 
-	v1 "cooool-blog-api/internal/pkg/model"
+	v1 "github.com/CoooolBlog/cooool-blog-api/internal/pkg/model"
 
 	metav1 "github.com/kristianhuang/go-cmp/meta/v1"
 )

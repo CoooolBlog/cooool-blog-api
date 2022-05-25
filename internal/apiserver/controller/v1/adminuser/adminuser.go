@@ -7,7 +7,7 @@
 package adminuser
 
 import (
-	srvv1 "cooool-blog-api/internal/apiserver/service/v1"
+	srvv1 "github.com/CoooolBlog/cooool-blog-api/internal/apiserver/service/v1"
 )
 
 type AdminUserController struct {

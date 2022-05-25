@@ -6,7 +6,7 @@
 
 package config
 
-import "cooool-blog-api/internal/apiserver/options"
+import "github.com/CoooolBlog/cooool-blog-api/internal/apiserver/options"
 
 type Config struct {
 	*options.Options

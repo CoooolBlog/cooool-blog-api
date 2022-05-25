@@ -7,9 +7,9 @@
 package options
 
 import (
-	"cooool-blog-api/internal/authzserver/analytics"
-	genericoptions "cooool-blog-api/internal/pkg/options"
-	"cooool-blog-api/internal/pkg/server"
+	"github.com/CoooolBlog/cooool-blog-api/internal/authzserver/analytics"
+	genericoptions "github.com/CoooolBlog/cooool-blog-api/internal/pkg/options"
+	"github.com/CoooolBlog/cooool-blog-api/internal/pkg/server"
 
 	"github.com/kristianhuang/go-cmp/flag"
 	"github.com/kristianhuang/go-cmp/rollinglog"

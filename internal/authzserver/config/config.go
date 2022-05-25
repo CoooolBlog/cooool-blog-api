@@ -6,7 +6,7 @@
 
 package config
 
-import "cooool-blog-api/internal/authzserver/options"
+import "github.com/CoooolBlog/cooool-blog-api/internal/authzserver/options"
 
 type Config struct {
 	*options.Options

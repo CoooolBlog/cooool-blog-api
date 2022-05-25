@@ -1,7 +1,7 @@
 syntax = "proto3";
 
 package proto;
-option go_package = "cooool-blog-api/internal/pkg/proto/apiserver/v1";
+option go_package = "github.com/CoooolBlog/cooool-blog-api/internal/pkg/proto/apiserver/v1";
 
 //go:generate protoc -I. --go_out=plugins=grpc:.
 

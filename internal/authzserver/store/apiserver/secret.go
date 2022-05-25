@@ -9,7 +9,7 @@ package apiserver
 import (
 	"context"
 
-	pb "cooool-blog-api/internal/pkg/proto/apiserver/v1"
+	pb "github.com/CoooolBlog/cooool-blog-api/internal/pkg/proto/apiserver/v1"
 
 	"github.com/AlekSi/pointer"
 	"github.com/avast/retry-go"

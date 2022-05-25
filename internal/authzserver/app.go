@@ -7,8 +7,8 @@
 package authzserver
 
 import (
-	"cooool-blog-api/internal/authzserver/config"
-	"cooool-blog-api/internal/authzserver/options"
+	"github.com/CoooolBlog/cooool-blog-api/internal/authzserver/config"
+	"github.com/CoooolBlog/cooool-blog-api/internal/authzserver/options"
 
 	"github.com/kristianhuang/go-cmp/app"
 	log "github.com/kristianhuang/go-cmp/rollinglog"

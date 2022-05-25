@@ -9,8 +9,8 @@ package adminuser
 import (
 	"context"
 
-	"cooool-blog-api/internal/apiserver/store"
-	"cooool-blog-api/internal/pkg/model"
+	"github.com/CoooolBlog/cooool-blog-api/internal/apiserver/store"
+	"github.com/CoooolBlog/cooool-blog-api/internal/pkg/model"
 
 	metav1 "github.com/kristianhuang/go-cmp/meta/v1"
 )

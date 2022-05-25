@@ -9,13 +9,13 @@ package authzserver
 import (
 	"context"
 
-	"cooool-blog-api/internal/authzserver/analytics"
-	"cooool-blog-api/internal/authzserver/config"
-	"cooool-blog-api/internal/authzserver/load"
-	"cooool-blog-api/internal/authzserver/load/cache"
-	"cooool-blog-api/internal/authzserver/store/apiserver"
-	genericoptions "cooool-blog-api/internal/pkg/options"
-	genericapiserver "cooool-blog-api/internal/pkg/server"
+	"github.com/CoooolBlog/cooool-blog-api/internal/authzserver/analytics"
+	"github.com/CoooolBlog/cooool-blog-api/internal/authzserver/config"
+	"github.com/CoooolBlog/cooool-blog-api/internal/authzserver/load"
+	"github.com/CoooolBlog/cooool-blog-api/internal/authzserver/load/cache"
+	"github.com/CoooolBlog/cooool-blog-api/internal/authzserver/store/apiserver"
+	genericoptions "github.com/CoooolBlog/cooool-blog-api/internal/pkg/options"
+	genericapiserver "github.com/CoooolBlog/cooool-blog-api/internal/pkg/server"
 
 	"github.com/kristianhuang/go-cmp/errors"
 	log "github.com/kristianhuang/go-cmp/rollinglog"

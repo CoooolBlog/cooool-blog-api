@@ -14,8 +14,8 @@ import (
 	"strings"
 	"time"
 
-	"cooool-blog-api/internal/pkg/middleware"
-	"cooool-blog-api/internal/pkg/response"
+	"github.com/CoooolBlog/cooool-blog-api/internal/pkg/middleware"
+	"github.com/CoooolBlog/cooool-blog-api/internal/pkg/response"
 
 	"github.com/gin-contrib/pprof"
 	"github.com/gin-gonic/gin"

@@ -7,8 +7,8 @@
 package apiserver
 
 import (
-	"cooool-blog-api/internal/apiserver/config"
-	"cooool-blog-api/internal/apiserver/options"
+	"github.com/CoooolBlog/cooool-blog-api/internal/apiserver/config"
+	"github.com/CoooolBlog/cooool-blog-api/internal/apiserver/options"
 
 	"github.com/kristianhuang/go-cmp/app"
 	log "github.com/kristianhuang/go-cmp/rollinglog"

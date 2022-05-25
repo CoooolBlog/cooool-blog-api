@@ -9,8 +9,8 @@ package mysql
 import (
 	"context"
 
-	"cooool-blog-api/internal/pkg/model"
-	"cooool-blog-api/internal/pkg/util/gormutil"
+	"github.com/CoooolBlog/cooool-blog-api/internal/pkg/model"
+	"github.com/CoooolBlog/cooool-blog-api/internal/pkg/util/gormutil"
 
 	"github.com/kristianhuang/go-cmp/fields"
 	metav1 "github.com/kristianhuang/go-cmp/meta/v1"

@@ -11,7 +11,7 @@ import (
 	"net/http"
 	"strings"
 
-	"cooool-blog-api/internal/authzserver/load"
+	"github.com/CoooolBlog/cooool-blog-api/internal/authzserver/load"
 
 	"github.com/gin-gonic/gin"
 	"github.com/kristianhuang/go-cmp/json"

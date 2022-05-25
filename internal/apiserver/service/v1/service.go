@@ -7,8 +7,8 @@
 package v1
 
 import (
-	"cooool-blog-api/internal/apiserver/service/v1/adminuser"
-	"cooool-blog-api/internal/apiserver/store"
+	"github.com/CoooolBlog/cooool-blog-api/internal/apiserver/service/v1/adminuser"
+	"github.com/CoooolBlog/cooool-blog-api/internal/apiserver/store"
 )
 
 type Service interface {

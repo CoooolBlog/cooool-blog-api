@@ -10,10 +10,10 @@ import (
 	"fmt"
 	"sync"
 
-	"cooool-blog-api/internal/apiserver/store"
-	"cooool-blog-api/internal/pkg/logger"
-	"cooool-blog-api/internal/pkg/model"
-	genericoptions "cooool-blog-api/internal/pkg/options"
+	"github.com/CoooolBlog/cooool-blog-api/internal/apiserver/store"
+	"github.com/CoooolBlog/cooool-blog-api/internal/pkg/logger"
+	"github.com/CoooolBlog/cooool-blog-api/internal/pkg/model"
+	genericoptions "github.com/CoooolBlog/cooool-blog-api/internal/pkg/options"
 
 	"github.com/kristianhuang/go-cmp/db"
 	"gorm.io/gorm"

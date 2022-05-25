@@ -7,19 +7,17 @@
 package adminuser
 
 import (
-	"cooool-blog-api/internal/pkg/code"
-	"cooool-blog-api/internal/pkg/model"
-	"cooool-blog-api/internal/pkg/response"
-
+	"github.com/CoooolBlog/cooool-blog-api/internal/pkg/code"
+	"github.com/CoooolBlog/cooool-blog-api/internal/pkg/model"
+	"github.com/CoooolBlog/cooool-blog-api/internal/pkg/response"
 	"github.com/gin-gonic/gin"
 	"github.com/kristianhuang/go-cmp/errors"
 	metav1 "github.com/kristianhuang/go-cmp/meta/v1"
 	"github.com/kristianhuang/go-cmp/validator"
-
-	validation_util "github.com/kristianhuang/go-cmp/validator/util"
+	validationutil "github.com/kristianhuang/go-cmp/validator/util"
 )
 
-type CreateForm struct {
+type createForm struct {
 	Account  string `json:"account" form:"account" validate:"required,gt=6" label:"账号"`
 	NickName string `json:"nick_name" form:"nick_name" validate:"required" label:"昵称"`
 	Password string `json:"password" form:"password" validate:"required,gt=0" label:"密码"`
@@ -29,33 +27,24 @@ type CreateForm struct {
 }
 
 func (a *AdminUserController) Create(c *gin.Context) {
-	formData := &CreateForm{}
-	if err := c.ShouldBind(formData); err != nil {
+	f := &createForm{}
+	if err := c.ShouldBind(f); err != nil {
 		response.Write(c, errors.WithCode(code.ErrBind, err.Error()), nil)
-
 		return
 	}
 
-	v := validator.New("zh", "label")
-	if err := v.RegisterValidation("isMobile", "请输入有效手机号码", validation_util.Mobile); err != nil {
-		response.Write(c, errors.WithCode(code.ErrRegisterValidation, err.Error()), nil)
-
-		return
-	}
-
-	if err := v.Struct(formData); err != nil {
-		response.Write(c, errors.WithCode(code.ErrValidation, err.(*validator.ValidationErrors).TranslateErrs()[0].Error()), nil)
-
+	if err := f.validate(); err != nil {
+		response.Write(c, err, nil)
 		return
 	}
 
 	au := &model.AdminUser{
-		Account:  formData.Account,
-		NickName: formData.NickName,
-		Password: formData.Password,
-		Mobile:   formData.Mobile,
-		Email:    formData.Email,
-		Status:   formData.Status,
+		Account:  f.Account,
+		NickName: f.NickName,
+		Password: f.Password,
+		Mobile:   f.Mobile,
+		Email:    f.Email,
+		Status:   f.Status,
 	}
 
 	if err := a.srv.AdminUser().Create(c, au, metav1.CreateOptions{}); err != nil {
@@ -65,3 +54,31 @@ func (a *AdminUserController) Create(c *gin.Context) {
 
 	response.Write(c, nil, au)
 }
+
+func (f *createForm) validate() error {
+	v := validator.New("zh", "label")
+	if err := v.RegisterValidation("isMobile", "请输入有效手机号码", validationutil.Mobile); err != nil {
+		return errors.WithCode(code.ErrRegisterValidation, err.Error())
+	}
+
+	if err := v.Struct(f); err != nil {
+		return errors.WithCode(code.ErrValidation, err.(*validator.ValidationErrors).TranslateErrs()[0].Error())
+	}
+
+	return nil
+}
+
+// func (f *createForm) applyTo() *model.AdminUser {
+// 	password, _ := auth.Encrypt(f.Password)
+// 	return &model.AdminUser{
+// 		NickName: f.NickName,
+// 		Password: password,
+// 		Mobile:   f.Mobile,
+// 		Email:    f.Email,
+// 		Status:   f.Status,
+// 		ObjectMeta: metav1.ObjectMeta{
+// 			Name:   f.Name,
+// 			Extend: f.Extend,
+// 		},
+// 	}
+// }
